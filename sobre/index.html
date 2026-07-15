@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Mim - Gustavo Luiz Heck</title>
+    
+    <!-- Meta tags SEO -->
+    <meta name="description" content="Conheça a história, motivações e objetivos profissionais de Gustavo Luiz Heck, estudante de Engenharia Mecânica e técnico em Automação.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Estilização Interna de Alta Estética -->
+    <style>
+        :root {
+            --bg-color: #080b11;
+            --card-bg: rgba(17, 24, 39, 0.6);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --primary: #06b6d4;
+            --primary-hover: #0891b2;
+            --indigo: #6366f1;
+            --text-primary: #f8fafc;
+            --text-muted: #94a3b8;
+            --radius: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(6, 182, 212, 0.05) 0%, transparent 45%),
+                radial-gradient(circle at 85% 85%, rgba(99, 102, 241, 0.05) 0%, transparent 45%);
+            padding: 40px 24px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 32px;
+            transition: color 0.3s ease;
+        }
+
+        .back-btn:hover {
+            color: var(--primary);
+        }
+
+        header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #f8fafc 20%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 12px;
+        }
+
+        header p {
+            color: var(--primary);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .about-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 40px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+            line-height: 1.7;
+            font-size: 1.05rem;
+            color: #cbd5e1;
+        }
+
+        .about-card p {
+            margin-bottom: 20px;
+        }
+
+        .about-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-card strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .timeline-section {
+            margin-top: 40px;
+        }
+
+        .timeline-section h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .timeline-vertical {
+            border-left: 2px solid var(--border-color);
+            padding-left: 24px;
+            margin-left: 10px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 32px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -31px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            background: var(--bg-color);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+        }
+
+        .timeline-year {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
+        .timeline-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .timeline-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        footer {
+            margin-top: 48px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="../index.html" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i> Voltar ao Portal
+        </a>
+
+        <header>
+            <h1>Sobre Mim</h1>
+            <p>Minha Jornada e Aspirações</p>
+        </header>
+
+        <div class="about-card">
+            <p>Olá! Meu nome é <strong>Gustavo Luiz Heck</strong>. Sou um estudante apaixonado por tecnologia e engenharia, atualmente cursando a 6ª fase de <strong>Engenharia Mecânica na UDESC-CCT</strong> (Joinville/SC) e com formação técnica consolidada em <strong>Automação Industrial pelo SENAI</strong>.</p>
+            
+            <p>Sempre me interessei pela intersecção entre o mundo físico e a lógica digital. A engenharia mecânica me fornece as bases de dinâmica, fluidos e projetos de máquinas, enquanto a automação me dá o controle lógico sobre os movimentos. Essa sinergia me motivou a focar meus estudos em <span class="highlight">Automação & Controle, Robótica e Engenharia de Sistemas</span>.</p>
+
+            <p>Durante minha trajetória na universidade, tive a oportunidade de liderar e gerenciar projetos na <strong>Konvex Jr.</strong> (Empresa Júnior de Engenharia Mecânica da UDESC), onde assumi a diretoria de projetos e atuei na coordenação de equipes e no desenvolvimento de soluções personalizadas para o mercado regional. Atualmente, sou bolsista no <strong>GERM UDESC</strong> (Grupo Estudantil de Robótica Móvel), focado em pesquisa aplicada em robótica móvel, cinemática de manipuladores e sistemas embarcados de baixo custo.</p>
+
+            <p>Acredito que o verdadeiro engenheiro é aquele que sabe construir e resolver problemas práticos de forma inteligente, eficiente e econômica. Por isso, utilizo meu tempo livre para construir e sintonizar bancadas didáticas, programar algoritmos em C++ e Python, e estudar métodos modernos de projeto mecânico, modelagem estática por elementos finitos e integração de sistemas de controle.</p>
+        </div>
+
+        <div class="timeline-section">
+            <h2>Trajetória em Destaque</h2>
+            <div class="timeline-vertical">
+                <div class="timeline-item">
+                    <div class="timeline-year">2023 - Presente</div>
+                    <div class="timeline-title">GERM UDESC · Bolsista & Pesquisador</div>
+                    <div class="timeline-desc">Pesquisa em robótica móvel, algoritmos de odometria, fusão de sensores e cinemática inversa analítica para manipuladores robóticos articulados.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2021 - 2022</div>
+                    <div class="timeline-title">Konvex Jr. · Diretor de Projetos</div>
+                    <div class="timeline-desc">Gestão de carteira de projetos de engenharia, vendas consultivas, planejamento estratégico de equipe técnica e controle de qualidade de entregas.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2020</div>
+                    <div class="timeline-title">UDESC · Início do Bacharelado</div>
+                    <div class="timeline-desc">Ingresso na graduação de Engenharia Mecânica no Centro de Ciências Tecnológicas (CCT) em Joinville/SC.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2018 - 2019</div>
+                    <div class="timeline-title">SENAI Tubarão · Curso Técnico</div>
+                    <div class="timeline-desc">Formação técnica profissional em Automação Industrial (908h). Domínio de Ladder, CLP Siemens (TIA Portal), supervisórios SCADA, redes industriais e eletropneumática.</div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2026 Gustavo Luiz Heck. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+</body>
+</html>

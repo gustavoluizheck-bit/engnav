@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gustavo Luiz Heck - Portfólio de Engenharia</title>
+    
+    <!-- Meta tags SEO -->
+    <meta name="description" content="Portal de portfólio profissional de Gustavo Luiz Heck. Acesse o Currículo Interativo e a plataforma EngNav de análise de mercado de engenharia.">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Estilização Interna de Alta Estética -->
+    <style>
+        :root {
+            --bg-color: #080b11;
+            --card-bg: rgba(17, 24, 39, 0.6);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --primary: #06b6d4;
+            --primary-hover: #0891b2;
+            --indigo: #6366f1;
+            --text-primary: #f8fafc;
+            --text-muted: #94a3b8;
+            --radius: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(6, 182, 212, 0.07) 0%, transparent 45%),
+                radial-gradient(circle at 85% 85%, rgba(99, 102, 241, 0.06) 0%, transparent 45%);
+            padding: 24px;
+            overflow-x: hidden;
+        }
+
+        .portal-container {
+            max-width: 1000px;
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header {
+            margin-bottom: 48px;
+        }
+
+        header h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #f8fafc 20%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 12px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        .highlight {
+            color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--indigo));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        .portal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        .portal-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 40px 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portal-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.03), transparent 70%);
+            pointer-events: none;
+        }
+
+        .portal-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(6, 182, 212, 0.4);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6), 0 0 20px rgba(6, 182, 212, 0.05);
+            background: rgba(24, 32, 49, 0.4);
+        }
+
+        .portal-card.cv-theme:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6), 0 0 20px rgba(99, 102, 241, 0.05);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .portal-card:hover .card-icon {
+            transform: scale(1.1);
+        }
+
+        .icon-cv {
+            color: var(--indigo);
+            filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.3));
+        }
+
+        .icon-engnav {
+            color: var(--primary);
+            filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.3));
+        }
+
+        .portal-card h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+
+        .portal-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 32px;
+            flex-grow: 1;
+            max-width: 320px;
+        }
+
+        .portal-btn {
+            width: 100%;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-primary);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .portal-card:hover .portal-btn {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #000;
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+        }
+
+        .portal-card.cv-theme:hover .portal-btn {
+            background: var(--indigo);
+            border-color: var(--indigo);
+            color: #fff;
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+        }
+
+        footer {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            letter-spacing: 0.02em;
+        }
+
+        footer a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="portal-container">
+        <header>
+            <h1>Gustavo Luiz Heck</h1>
+            <p>Portfólio de Engenharia Mecânica e Sistemas. Selecione um dos projetos abaixo para explorar.</p>
+        </header>
+
+        <div class="portal-grid">
+            <!-- CARD 1: CURRÍCULO -->
+            <a href="./curriculo/index.html" class="portal-card cv-theme">
+                <i class="fa-solid fa-user-tie card-icon icon-cv"></i>
+                <h2>Currículo Interativo</h2>
+                <p>Acesse minha trajetória profissional, acadêmica, habilidades técnicas de engenharia e projetos realizados.</p>
+                <div class="portal-btn">
+                    <span>Acessar Currículo</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- CARD 2: ENGNAV -->
+            <a href="./engnav/index.html" class="portal-card">
+                <i class="fa-solid fa-compass-drafting card-icon icon-engnav"></i>
+                <h2>Plataforma EngNav</h2>
+                <p>Ferramenta de análise de mercado de engenharia, recomendação de projetos mecatrônicos de baixo custo e Gap Finder.</p>
+                <div class="portal-btn">
+                    <span>Acessar EngNav</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- CARD 3: SOBRE MIM -->
+            <a href="./sobre/index.html" class="portal-card cv-theme" style="border-color: rgba(6, 182, 212, 0.08);">
+                <i class="fa-solid fa-address-card card-icon" style="color: var(--primary); filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.3));"></i>
+                <h2>Sobre Mim</h2>
+                <p>Conheça mais sobre minha história, minhas motivações na engenharia e meus objetivos profissionais.</p>
+                <div class="portal-btn">
+                    <span>Conhecer História</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+        </div>
+
+        <footer>
+            <p>Desenvolvido com <span style="color: var(--primary)">❤</span> | Hospede no <a href="https://github.com/gustavoluizheck-bit/engnav" target="_blank">GitHub</a></p>
+        </footer>
+    </div>
+
+    <!-- PWA Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('service-worker.js')
+                    .then(reg => console.log('Service Worker registrado com sucesso:', reg))
+                    .catch(err => console.log('Falha ao registrar Service Worker:', err));
+            });
+        }
+    </script>
+</body>
+</html>

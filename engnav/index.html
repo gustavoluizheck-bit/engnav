@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EngNav - Carreira e Projetos de Engenharia</title>
+    
+    <!-- Meta tags SEO -->
+    <meta name="description" content="EngNav é uma ferramenta interativa para estudantes de Engenharia Mecânica, Automação e Controle analisarem o mercado brasileiro, planejarem habilidades e desenvolverem projetos práticos de baixo custo.">
+    <meta name="keywords" content="Engenharia Mecânica, Automação e Controle, Mercado de Trabalho, Projetos Baixo Custo, Arduino, ESP32, Currículo, Carreira">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Chart.js para Gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- jsPDF para Geração de Relatórios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+    <header class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-compass-drafting brand-icon"></i>
+            <span>Eng<span class="highlight">Nav</span></span>
+        </div>
+        <nav class="nav-links">
+            <button class="nav-btn active" data-tab="mercado" id="tab-mercado"><i class="fa-solid fa-chart-line"></i> Mercado & Vagas</button>
+            <button class="nav-btn" data-tab="projetos" id="tab-projetos"><i class="fa-solid fa-cubes"></i> Projetos Baixo Custo</button>
+            <button class="nav-btn" data-tab="competencias" id="tab-competencias"><i class="fa-solid fa-list-check"></i> Gap Finder</button>
+            <button class="nav-btn" data-tab="aprendizagem" id="tab-aprendizagem"><i class="fa-solid fa-book-open"></i> Aprendizagem</button>
+            <button class="nav-btn" data-tab="chatbot" id="tab-chatbot"><i class="fa-solid fa-robot"></i> Mentor de IA</button>
+        </nav>
+        <div class="status-indicator">
+            <span class="pulse-dot"></span>
+            <span class="status-text">Mercado BR: Aquecido</span>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- SEÇÃO 1: MERCADO & VAGAS -->
+        <section id="mercado" class="tab-content active">
+            <div class="section-header">
+                <h1>Painel de Mercado e Vagas</h1>
+                <p>Analise a relação de oferta e procura nos setores de Engenharia Mecânica, Sistemas e Automação no Brasil.</p>
+            </div>
+            
+            <div class="grid-layout">
+                <!-- Filtros e Insights -->
+                <div class="card glass shadow flex-column">
+                    <h2><i class="fa-solid fa-sliders text-accent"></i> Filtros de Análise</h2>
+                    <div class="form-group">
+                        <label for="setor-select">Área de Engenharia</label>
+                        <select id="setor-select" class="form-control">
+                            <option value="todos">Todas as Áreas</option>
+                            <option value="mecanica">Engenharia Mecânica Pura</option>
+                            <option value="automacao">Controle e Automação / Mecatrônica</option>
+                            <option value="sistemas">Engenharia de Sistemas / Integração</option>
+                        </select>
+                    </div>
+                    
+                    <div class="insight-box">
+                        <h3><i class="fa-solid fa-lightbulb text-warning"></i> Insight do Mercado BR</h3>
+                        <p id="insight-text">A Indústria 4.0 e a Automação Agrícola estão liderando a contratação de engenheiros multidisciplinares. Profissionais de mecânica que sabem programar (Python/C++) e conhecem microcontroladores (ESP32/CLP) têm 3x mais chances de inserção rápida.</p>
+                    </div>
+
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <span class="metric-label">Salário Médio Jr.</span>
+                            <span class="metric-value">R$ 6.200</span>
+                            <span class="metric-sub">Piso do CREA (8,5 Sal. Mín. em lei)</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-label">Setor em Alta</span>
+                            <span class="metric-value text-accent">Agronegócio / Energia</span>
+                            <span class="metric-sub">Forte demanda no Centro-Oeste e Sul</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gráficos de Demanda e Região -->
+                <div class="card glass shadow">
+                    <h2><i class="fa-solid fa-chart-bar text-accent"></i> Demanda de Vagas vs. Oferta de Candidatos</h2>
+                    <div class="chart-container">
+                        <canvas id="demandChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-layout mt-4">
+                <div class="card glass shadow">
+                    <h2><i class="fa-solid fa-map-location-dot text-accent"></i> Distribuição Geográfica de Vagas (Polos Industriais)</h2>
+                    <div class="chart-container">
+                        <canvas id="regionChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card glass shadow flex-column">
+                    <h2><i class="fa-solid fa-fire text-danger"></i> Tecnologias mais Requeridas (Top Skills)</h2>
+                    <ul class="skills-ranking-list" id="skills-ranking">
+                        <!-- Gerado dinamicamente via JS -->
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 2: PROJETOS DE BAIXO CUSTO -->
+        <section id="projetos" class="tab-content">
+            <div class="section-header">
+                <h1>Biblioteca de Projetos de Baixo Custo</h1>
+                <p>Projetos práticos para fazer em casa, aprimorar seus conhecimentos e destacar no seu currículo de engenharia.</p>
+            </div>
+
+            <!-- Painel de Progresso Geral -->
+            <div class="progress-dashboard card glass shadow mb-4" id="progress-dashboard">
+                <div class="progress-dashboard-header">
+                    <h2><i class="fa-solid fa-chart-line text-accent"></i> Meu Progresso nos Projetos</h2>
+                    <span class="progress-stats-text" id="progress-stats-text">0 de 4 concluídos (0%)</span>
+                </div>
+                <div class="progress-bar-container-global">
+                    <div class="progress-bar-fill-global" id="progress-bar-fill" style="width: 0%;"></div>
+                </div>
+                <div class="progress-breakdown">
+                    <div class="breakdown-item">
+                        <span class="breakdown-dot not-started"></span>
+                        <span id="stats-not-started">4 Não Iniciados</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span class="breakdown-dot in-progress"></span>
+                        <span id="stats-in-progress">0 Em Execução</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span class="breakdown-dot completed"></span>
+                        <span id="stats-completed">0 Concluídos</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filters-bar glass">
+                <div class="filter-group">
+                    <label><i class="fa-solid fa-tags"></i> Trilha / Categoria:</label>
+                    <div class="filter-buttons flex-wrap" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <button class="filter-btn active" data-category="todos">Todos</button>
+                        <button class="filter-btn" data-category="controle">Controle</button>
+                        <button class="filter-btn" data-category="robotica">Robótica</button>
+                        <button class="filter-btn" data-category="iot">IoT Industrial</button>
+                        <button class="filter-btn" data-category="mecanica">Mecânica/CAD</button>
+                        <button class="filter-btn" data-category="software">Programação</button>
+                        <button class="filter-btn" data-category="integracao">Integração</button>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <label><i class="fa-solid fa-dollar-sign"></i> Custo Máximo:</label>
+                    <select id="budget-select" class="form-control">
+                        <option value="all">Qualquer valor</option>
+                        <option value="150">Até R$ 150</option>
+                        <option value="300">Até R$ 300</option>
+                        <option value="600">Até R$ 600</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label><i class="fa-solid fa-table-columns"></i> Layout:</label>
+                    <div class="view-toggle-buttons" style="display: flex; gap: 0.25rem;">
+                        <button class="view-btn active" id="view-grid-btn" style="padding: 0.5rem 1rem; border-radius: 8px; border: 1px solid var(--border); background: var(--card-bg); color: var(--text-primary); cursor: pointer;"><i class="fa-solid fa-grip"></i> Grid</button>
+                        <button class="view-btn" id="view-kanban-btn" style="padding: 0.5rem 1rem; border-radius: 8px; border: 1px solid var(--border); background: var(--card-bg); color: var(--text-primary); cursor: pointer;"><i class="fa-solid fa-table-columns"></i> Kanban</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projects-grid" id="projects-container">
+                <!-- Gerado dinamicamente via JS -->
+            </div>
+
+            <div class="kanban-view" id="kanban-container" style="display: none;">
+                <div class="kanban-column" data-status="not-started">
+                    <div class="column-header">
+                        <h3>Não Iniciado</h3>
+                        <span class="count-badge" id="count-not-started">0</span>
+                    </div>
+                    <div class="kanban-cards-container" id="kanban-not-started" ondragover="event.preventDefault()" ondrop="handleDrop(event, 'not-started')"></div>
+                </div>
+                <div class="kanban-column" data-status="in-progress">
+                    <div class="column-header">
+                        <h3>Em Execução</h3>
+                        <span class="count-badge" id="count-in-progress">0</span>
+                    </div>
+                    <div class="kanban-cards-container" id="kanban-in-progress" ondragover="event.preventDefault()" ondrop="handleDrop(event, 'in-progress')"></div>
+                </div>
+                <div class="kanban-column" data-status="completed">
+                    <div class="column-header">
+                        <h3>Concluído</h3>
+                        <span class="count-badge" id="count-completed">0</span>
+                    </div>
+                    <div class="kanban-cards-container" id="kanban-completed" ondragover="event.preventDefault()" ondrop="handleDrop(event, 'completed')"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 3: GAP FINDER -->
+        <section id="competencias" class="tab-content">
+            <div class="section-header">
+                <h1>Analisador de Lacunas (Gap Finder)</h1>
+                <p>Selecione suas habilidades atuais e sua vaga desejada. Analisaremos seu perfil e criaremos um roadmap técnico personalizado de baixo custo.</p>
+            </div>
+
+            <div class="grid-layout-unequal">
+                <!-- Checklist de Habilidades -->
+                <div class="card glass shadow flex-column">
+                    <h2><i class="fa-solid fa-list-check text-accent"></i> Minhas Habilidades Atuais</h2>
+                    
+                    <div class="skills-checklist-container">
+                        <div class="skill-category-group">
+                            <h3><i class="fa-solid fa-code"></i> Programação & Software</h3>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" value="python" class="skill-checkbox"> Python (Básico/Análise)
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" value="cpp" class="skill-checkbox"> C++ (Arduino/ESP32)
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" value="matlab" class="skill-checkbox"> MATLAB / GNU Octave
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" value="git" class="skill-checkbox"> Git / GitHub
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="skill-category-group mt-3">
+                            <h3><i class="fa-solid fa-microchip"></i> Hardware & Automação</h3>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" value="arduino" class="skill-checkbox"> Arduino (Prototipagem)
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" value="esp32" class="skill-checkbox"> ESP32 & IoT
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" value="clp" class="skill-checkbox"> CLP / Lógica Ladder
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" value="scada" class="skill-checkbox"> Sistemas SCADA / IHM
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="skill-category-group mt-3">
+                            <h3><i class="fa-solid fa-compass-drafting"></i> Design, CAD & Engenharia</h3>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" value="cad" class="skill-checkbox"> Modelagem CAD 3D (SolidWorks/Inventor)
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" value="fea" class="skill-checkbox"> Análise por Elementos Finitos (FEA)
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" value="pid" class="skill-checkbox"> Sintonia de Controle PID
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" value="hidraulica" class="skill-checkbox"> Sistemas Hidráulicos/Pneumáticos
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <label for="target-job" class="font-bold">Objetivo de Carreira (Vaga Alvo):</label>
+                        <select id="target-job" class="form-control">
+                            <option value="automacao_ind">Engenheiro de Automação e Controle Jr</option>
+                            <option value="mecanico_des">Engenheiro de Desenvolvimento Mecânico (P&D)</option>
+                            <option value="sistemas_emb">Engenheiro de Sistemas Embarcados / IoT</option>
+                            <option value="manutencao_pred">Engenheiro de Confiabilidade / Manutenção Preditiva</option>
+                        </select>
+                    </div>
+
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; width: 100%;">
+                        <button id="analyze-btn" class="btn btn-primary mt-3" style="flex: 1;"><i class="fa-solid fa-wand-magic-sparkles"></i> Analisar Compatibilidade</button>
+                        <button id="export-roadmap-btn" class="btn btn-accent mt-3" style="display: none; flex: 1;"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
+                    </div>
+                </div>
+
+                <!-- Resultado do Roadmap -->
+                <div class="card glass shadow flex-column" id="roadmap-container">
+                    <div class="roadmap-empty-state">
+                        <i class="fa-solid fa-route empty-icon"></i>
+                        <h3>Aguardando Análise</h3>
+                        <p>Marque suas competências atuais ao lado, escolha sua vaga pretendida e clique em "Analisar Compatibilidade" para gerar seu plano de estudos acelerado.</p>
+                    </div>
+                    <!-- Resultados serão injetados dinamicamente -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO EXTRA: APRENDIZAGEM (Skills e Livros) -->
+        <section id="aprendizagem" class="tab-content">
+            <div class="section-header">
+                <h1>Painel de Aprendizagem & Competências</h1>
+                <p>Gerencie suas competências comportamentais e técnicas, e consulte livros recomendados para fundamentar seus projetos.</p>
+            </div>
+
+            <div class="grid-layout">
+                <!-- Painel de Skills -->
+                <div class="card glass shadow flex-column">
+                    <h2><i class="fa-solid fa-graduation-cap text-accent"></i> Minhas Habilidades (Editáveis)</h2>
+                    
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <input type="text" id="new-skill-name" class="form-control" placeholder="Nome da Habilidade..." style="flex: 2;">
+                        <select id="new-skill-type" class="form-control" style="flex: 1;">
+                            <option value="hard">Hard Skill</option>
+                            <option value="soft">Soft Skill</option>
+                        </select>
+                        <button id="add-skill-btn" class="btn btn-primary" style="padding: 0.5rem 1rem;"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+
+                    <h3>Hard Skills</h3>
+                    <div class="skills-manage-list" id="hard-skills-list" style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem;">
+                        <!-- Injetado dinamicamente via JS -->
+                    </div>
+
+                    <h3>Soft Skills</h3>
+                    <div class="skills-manage-list" id="soft-skills-list" style="display: flex; flex-direction: column; gap: 1rem;">
+                        <!-- Injetado dinamicamente via JS -->
+                    </div>
+                </div>
+
+                <!-- Painel de Livros -->
+                <div class="card glass shadow flex-column">
+                    <h2><i class="fa-solid fa-book text-accent"></i> Biblioteca Técnica de Referência</h2>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">Livros sugeridos para fundamentação teórica de seus projetos. Adicione os seus próprios livros de cabeceira.</p>
+                    
+                    <form id="add-book-form" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem;">
+                        <input type="text" id="new-book-title" class="form-control" placeholder="Título do Livro..." required style="grid-column: 1 / -1;">
+                        <input type="text" id="new-book-author" class="form-control" placeholder="Autor..." required>
+                        <select id="new-book-area" class="form-control" required>
+                            <option value="Controle">Controle</option>
+                            <option value="Mecânica">Mecânica</option>
+                            <option value="Eletrônica">Eletrônica</option>
+                            <option value="Programação">Programação</option>
+                            <option value="IoT">IoT</option>
+                            <option value="Robótica">Robótica</option>
+                            <option value="Automação">Automação</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary" style="grid-column: 1 / -1; padding: 0.5rem;"><i class="fa-solid fa-plus"></i> Adicionar Livro</button>
+                    </form>
+
+                    <div class="books-list" id="books-list" style="display: flex; flex-direction: column; gap: 0.75rem; max-height: 500px; overflow-y: auto; padding-right: 0.5rem;">
+                        <!-- Injetado dinamicamente via JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 4: CHATBOT MENTOR DE IA -->
+        <section id="chatbot" class="tab-content">
+            <div class="section-header">
+                <h1>Mentor de Carreira de IA</h1>
+                <p>Tire suas dúvidas sobre o mercado de engenharia mecânica e automação no Brasil, receba dicas de currículo, LinkedIn e orientação técnica.</p>
+            </div>
+
+            <div class="chat-wrapper glass shadow">
+                <!-- Sidebar de Sugestões de Perguntas -->
+                <div class="chat-sidebar">
+                    <h3>Perguntas Frequentes</h3>
+                    <div class="faq-buttons">
+                        <button class="faq-btn" data-question="Como estruturar meus projetos pessoais no meu currículo?">
+                            <i class="fa-regular fa-file-lines"></i> Como estruturar projetos no currículo?
+                        </button>
+                        <button class="faq-btn" data-question="Quais conhecimentos de programação são obrigatórios para engenheiros mecânicos hoje?">
+                            <i class="fa-solid fa-code"></i> Programação para Mecânica?
+                        </button>
+                        <button class="faq-btn" data-question="Como transicionar de Engenharia Mecânica pura para Automação e Controle?">
+                            <i class="fa-solid fa-arrows-spin"></i> Como transicionar para Automação?
+                        </button>
+                        <button class="faq-btn" data-question="Quais são as melhores plataformas de ensino gratuito com certificação na área?">
+                            <i class="fa-solid fa-graduation-cap"></i> Cursos gratuitos recomendados?
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Área de Mensagens -->
+                <div class="chat-area">
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="message assistant">
+                            <div class="message-avatar">
+                                <i class="fa-solid fa-robot"></i>
+                            </div>
+                            <div class="message-content">
+                                <p>Olá! Sou o seu Mentor de Carreira focado em engenharia mecatrônica, mecânica e sistemas no Brasil. Como posso ajudar você a se preparar rapidamente para o mercado de trabalho hoje?</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-wrapper">
+                        <input type="text" id="chat-input" placeholder="Digite sua pergunta aqui..." autocomplete="off">
+                        <button id="send-btn" class="btn btn-accent"><i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de Detalhes do Projeto -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content glass shadow">
+            <span class="close-modal">&times;</span>
+            <div id="modal-project-details">
+                <!-- Conteúdo injetado via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts da Aplicação -->
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+%-------------------------
+% Currículo em LaTeX - Otimizado para ATS (Sistemas de IA de RH)
+% Autor: Gustavo Luiz Heck
+% Tipo: Estágio em Engenharia Mecânica / Automação
+%-------------------------
+
+\documentclass[11pt,a4paper,sans]{article}
+
+% --- PACOTES BÁSICOS ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[portuguese]{babel}
+\usepackage{lmodern}
+
+% --- AJUSTE DE MARGENS ---
+\usepackage[top=1.6cm, bottom=1.6cm, left=1.8cm, right=1.8cm]{geometry}
+
+% --- DESIGN & CORES ---
+\usepackage{xcolor}
+\definecolor{primaryColor}{HTML}{0F172A}    % Azul Escuro / Slate
+\definecolor{accentColor}{HTML}{1D4ED8}     % Azul Royal para detalhes/seções
+\definecolor{textColor}{HTML}{334155}       % Cinza Escuro para texto corrido
+
+% --- AJUSTE DE FONTES ---
+\renewcommand{\familydefault}{\sfdefault}   % Fonte Sem Serifa (Arial/Helvetica style)
+
+% --- OUTROS PACOTES ---
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{tabularx}
+
+% --- CONFIGURAÇÕES DE LINKS (hyperref) ---
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accentColor,
+    urlcolor=accentColor,
+    pdftitle={Gustavo Luiz Heck - Currículo},
+    pdfauthor={Gustavo Luiz Heck}
+}
+
+% --- ESTILO DE SEÇÕES (titlesec) ---
+\titleformat{\section}
+  {\normalfont\large\bfseries\color{accentColor}} % Formato
+  {}                                             % Label (número)
+  {0pt}                                          % Espaço entre label e título
+  {}                                             % Código antes
+  [{\color{accentColor}\titlerule[0.8pt]}]       % Linha horizontal abaixo
+
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+
+% --- COMANDOS CUSTOMIZADOS PARA ORGANIZAÇÃO ---
+\newcommand{\experienceHeader}[4]{
+    \noindent
+    \begin{tabularx}{\textwidth}{@{} X r @{}}
+        \textbf{\color{primaryColor}#1} | \textit{#2} & \small{#3} \\
+        \small\textit{\color{textColor}#4} & \\
+    \end{tabularx}
+    \vspace{-2pt}
+}
+
+\newcommand{\educationItem}[4]{
+    \noindent
+    \begin{tabularx}{\textwidth}{@{} X r @{}}
+        \textbf{\color{primaryColor}#1} & \small{#3} \\
+        \small{#2} & \small\textit{#4} \\
+    \end{tabularx}
+    \vspace{2pt}
+}
+
+% --- RETIRAR INDENTAÇÃO PADRÃO ---
+\setlength{\parindent}{0pt}
+
+\begin{document}
+\color{textColor}
+
+% ==========================================
+% CABEÇALHO (Informações Pessoais)
+% ==========================================
+\begin{center}
+    {\Huge \textbf{\color{primaryColor}Gustavo Luiz Heck}} \\
+    \vspace{6pt}
+    \small Joinville/SC \ | \ (48) 99144-0068 \ | \ 
+    \href{mailto:gustavoluizheck+trabalho@gmail.com}{gustavoluizheck+trabalho@gmail.com} \\
+    \vspace{2pt}
+    \href{https://www.linkedin.com/in/gustavo-luiz-heck-987442207/}{linkedin.com/in/gustavo-luiz-heck-987442207/}
+\end{center}
+
+\vspace{6pt}
+
+% ==========================================
+% OBJETIVO
+% ==========================================
+\section{Objetivo}
+Estudante de Engenharia Mecânica com sólida formação técnica em Automação Industrial, em busca de \textbf{Estágio em Engenharia}. Foco em integrar conhecimentos multidisciplinares nas áreas de \textbf{Automação e Controle}, \textbf{Projetos Mecânicos} e \textbf{Engenharia de Sistemas}. Perfil adaptativo com experiência prática em liderança de equipes de desenvolvimento e gestão de projetos em empresa júnior e robótica móvel de competição.
+
+% ==========================================
+% FORMAÇÃO ACADÊMICA
+% ==========================================
+\section{Formação Acadêmica}
+
+\educationItem
+  {Bacharelado em Engenharia Mecânica}
+  {UDESC -- Centro de Ciências Tecnológicas (CCT)}
+  {2020/1 -- Presente (6ª fase em andamento)}
+  {Joinville/SC}
+
+\vspace{4pt}
+
+\educationItem
+  {Curso Técnico em Automação Industrial}
+  {SENAI Tubarão}
+  {Concluído em 2019/2}
+  {Tubarão/SC}
+
+% ==========================================
+% EXPERIÊNCIA
+% ==========================================
+\section{Experiência}
+
+\experienceHeader
+  {GERM UDESC}
+  {Grupo Estudantil de Robótica Móvel}
+  {3 anos e 2 meses (jun/2023 -- presente)}
+  {Bolsista de Extensão \& Líder (desde dez/2023) | Membro Voluntário (jun/2023 -- dez/2023)}
+
+\begin{itemize}[nosep, leftmargin=*]
+    \item \textbf{Robótica para a Inclusão Social (RISO):} Desenvolvimento e aplicação de projetos educacionais voltados à robótica móvel, circuitos eletrônicos e programação para a comunidade.
+    \item \textbf{Liderança do Processo Seletivo:} Planejamento, estruturação e coordenação de estratégias de recrutamento, dinâmicas de fit cultural e avaliação técnica de novos membros.
+    \item \textbf{Liderança NERO \& ROBOCOMP:} Gestão de equipes em robôs de competição. Atuação no desenvolvimento de firmware (microcontroladores Arduino) em \textbf{linguagem C/C++} e modelagem mecânica de componentes.
+\end{itemize}
+
+\vspace{6pt}
+
+\experienceHeader
+  {Konvex Jr.}
+  {Empresa Júnior de Engenharia Mecânica -- UDESC-CCT}
+  {1 ano e 11 meses (fev/2021 -- dez/2022)}
+  {Diretor de Projetos (dez/2021 -- dez/2022) | Assessor, Consultor \& Trainee (fev/2021 -- dez/2021)}
+
+\begin{itemize}[nosep, leftmargin=*]
+    \item \textbf{Gestão de Portfólio (Diretoria):} Planejamento estratégico e controle de qualidade de projetos de consultoria mecânica, com foco no cumprimento de prazos, escopos e satisfação do cliente.
+    \item \textbf{Liderança de Equipes:} Gestão direta de projetistas em soluções de engenharia, promovendo metodologias ágeis e cultura corporativa.
+    \item \textbf{Modelagem 3D \& Detalhamento CAD:} Elaboração de geometrias, montagens de conjuntos mecânicos e desenhos técnicos utilizando \textbf{SolidWorks}, \textbf{Autodesk Inventor} e \textbf{Fusion 360}.
+    \item \textbf{Estudos de Viabilidade:} Análise técnica de projetos, levantamento de requisitos, atendimento ao cliente e elaboração de propostas comerciais.
+\end{itemize}
+
+% ==========================================
+% HABILIDADES TÉCNICAS
+% ==========================================
+\section{Habilidades Técnicas}
+\begin{itemize}[nosep, leftmargin=*]
+    \item \textbf{CAD / Modelagem 3D:} SolidWorks, Autodesk Inventor, Fusion 360, Desenho Técnico Mecânico.
+    \item \textbf{Automação \& CLPs:} TIA Portal (Linguagem Ladder), RobotStudio (ABB), SCADA (E3 Viewer), Sistemas Eletropneumáticos.
+    \item \textbf{Programação / Firmware:} C/C++, Arduino (Microcontroladores), Lógica de Programação.
+    \item \textbf{Simulação / FEA:} ANSYS (Estrutural), Altair Inspire (Otimização Topológica).
+    \item \textbf{Fabricação & Impressão 3D:} Manufatura Aditiva, Aplicações e propriedades de materiais termoplásticos (PETG, TPU).
+    \item \textbf{Idiomas / Outros:} Inglês (Leitura Técnica Autônoma de documentações/manuais), Microsoft Excel, Gestão de Projetos.
+\end{itemize}
+
+% ==========================================
+% MÓDULOS DO CURSO TÉCNICO (SENAI - 908h)
+% ==========================================
+\section{Formação Técnica Detalhada (SENAI)}
+\begin{itemize}[nosep, leftmargin=*]
+    \item \textbf{Módulo I -- Eletroeletrônica e Controle (424h):} Acionamentos Eletroeletrônicos, Instrumentação e Controle de Processos Industriais, Sistemas Eletrohidráulicos e Eletropneumáticos, Sistemas Eletrônicos e Microcontrolados, Sistemas Lógicos Programáveis.
+    \item \textbf{Módulo II -- Sistemas Automatizados (292h):} Gestão dos Processos de Implementação de Sistemas Automatizados, Comissionamento de Sistemas, Sistemas de Supervisão e Controle, Integração de Dispositivos Automatizados, Manutenção de Sistemas.
+    \item \textbf{Módulo III -- Projetos (192h):} Projetos de Acionamentos Eletroeletrônicos, Projetos de Controle e Sistemas Automatizados, Projetos de Intertravamento de Segurança de Processos Industriais.
+\end{itemize}
+
+\end{document}

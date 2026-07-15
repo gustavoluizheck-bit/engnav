@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gustavo Luiz Heck — Currículo</title>
+    <meta name="description" content="Currículo de Gustavo Luiz Heck — Estudante de Engenharia Mecânica na UDESC-CCT com formação técnica em Automação Industrial. Joinville/SC.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Scroll Spy Navigation Sidebar -->
+    <nav class="scrollspy-nav">
+        <ul class="nav-list">
+            <li><a href="#hero" class="nav-link active" title="Início"><i class="fa-solid fa-house"></i><span class="nav-text" data-i18n="nav-home">Início</span></a></li>
+            <li><a href="#objetivo" class="nav-link" title="Objetivo"><i class="fa-solid fa-bullseye"></i><span class="nav-text" data-i18n="nav-objective">Objetivo</span></a></li>
+            <li><a href="#formacao" class="nav-link" title="Formação"><i class="fa-solid fa-graduation-cap"></i><span class="nav-text" data-i18n="nav-education">Formação</span></a></li>
+            <li><a href="#experiencia" class="nav-link" title="Experiência"><i class="fa-solid fa-briefcase"></i><span class="nav-text" data-i18n="nav-experience">Experiência</span></a></li>
+            <li><a href="#habilidades" class="nav-link" title="Habilidades"><i class="fa-solid fa-gears"></i><span class="nav-text" data-i18n="nav-skills">Habilidades</span></a></li>
+            <li><a href="#modulos" class="nav-link" title="Módulos"><i class="fa-solid fa-book-open-reader"></i><span class="nav-text" data-i18n="nav-modules">Módulos</span></a></li>
+            <li><a href="#projetos-tecnicos" class="nav-link" title="Projetos"><i class="fa-solid fa-diagram-project"></i><span class="nav-text" data-i18n="nav-projects">Projetos</span></a></li>
+            <li><a href="#certificacoes" class="nav-link" title="Certificações"><i class="fa-solid fa-award"></i><span class="nav-text" data-i18n="nav-certs">Certificações</span></a></li>
+        </ul>
+    </nav>
+
+    <!-- Floating Controls -->
+    <div class="floating-controls">
+        <button id="theme-toggle" class="fab" aria-label="Alternar tema">
+            <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+            <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+            </svg>
+        </button>
+        <button id="lang-toggle" class="fab" aria-label="Alternar idioma">
+            <span class="lang-text">EN</span>
+        </button>
+        <a href="curriculo.tex" download class="fab" aria-label="Baixar LaTeX" id="latex-btn">
+            <span class="latex-text" style="font-weight: 700; font-size: 11px;">TEX</span>
+        </a>
+        <button id="print-btn" class="fab" aria-label="Baixar como PDF" onclick="window.print()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+        </button>
+    </div>
+
+    <main>
+        <!-- ==================== HERO ==================== -->
+        <header id="hero" class="hero">
+            <div class="hero-glow"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <p class="hero-greeting" data-i18n="hero-greeting">Currículo</p>
+                    <h1 class="hero-name">Gustavo Luiz Heck</h1>
+                    <p class="hero-title"><span id="typing-prefix" data-i18n="hero-prefix">Estudante de Engenharia Mecânica na UDESC-CCT</span><br><span id="typing-text" style="color: var(--accent-secondary); font-weight: 600;"></span></p>
+                    <div class="contact-row">
+                        <a href="mailto:gustavoluizheck+trabalho@gmail.com" class="contact-item" id="contact-email">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
+                            <span>gustavoluizheck+trabalho@gmail.com</span>
+                        </a>
+                        <a href="tel:+5548991440068" class="contact-item" id="contact-phone">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                            <span>(48) 99144-0068</span>
+                        </a>
+                        <span class="contact-item" id="contact-location">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <span>Joinville/SC</span>
+                        </span>
+                        <a href="https://www.linkedin.com/in/gustavo-luiz-heck-987442207/" target="_blank" rel="noopener noreferrer" class="contact-item" id="contact-linkedin">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ==================== OBJETIVO ==================== -->
+        <section id="objetivo" class="section" data-reveal>
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="section-number">01</span>
+                    <span data-i18n="sec-objective">Objetivo</span>
+                </h2>
+                <div class="objetivo-card">
+                    <p class="objetivo-text" data-i18n="objetivo-text">
+                        Estudante de Engenharia Mecânica na 6ª fase com formação técnica em
+                        Automação Industrial, em busca de <strong>estágio</strong> que me permita
+                        aplicar e aprofundar meu perfil multidisciplinar em mecânica, eletrônica
+                        e automação. Com experiência em gestão de projetos em empresa júnior e
+                        pesquisa aplicada em robótica móvel, tenho interesse em áreas como
+                        <strong>Automação e Controle</strong>, <strong>Projetos</strong> e
+                        <strong>Engenharia de Sistemas</strong>.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== FORMAÇÃO ==================== -->
+        <section id="formacao" class="section" data-reveal>
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="section-number">02</span>
+                    <span data-i18n="sec-education">Formação Acadêmica</span>
+                </h2>
+                <div class="timeline">
+                    <div class="timeline-item" data-reveal>
+                        <div class="timeline-marker active">
+                            <span class="timeline-pulse"></span>
+                        </div>
+                        <div class="timeline-content">
+                            <span class="badge badge-active">Em andamento</span>
+                            <h3>Bacharelado em Engenharia Mecânica</h3>
+                            <p class="timeline-institution">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+                                UDESC — Centro de Ciências Tecnológicas (CCT)
+                            </p>
+                            <p class="timeline-meta">2020/1 – Presente · 6ª Fase · Joinville, SC</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-reveal>
+                        <div class="timeline-marker completed"></div>
+                        <div class="timeline-content">
+                            <span class="badge badge-completed">Concluído</span>
+                            <h3>Técnico em Automação Industrial</h3>
+                            <p class="timeline-institution">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+                                SENAI — Tubarão
+                            </p>
+                            <p class="timeline-meta">Concluído em 2019/2 · Tubarão, SC</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== EXPERIÊNCIA ==================== -->
+        <section id="experiencia" class="section" data-reveal>
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="section-number">03</span>
+                    <span data-i18n="sec-experience">Experiência</span>
+                </h2>
+                <div class="experience-grid">
+                    <!-- GERM UDESC -->
+                    <article class="experience-card" data-reveal>
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="experience-org">GERM UDESC</h3>
+                                <p class="experience-subtitle">Grupo Estudantil de Robótica Móvel</p>
+                            </div>
+                            <span class="experience-duration">3 anos 2 meses</span>
+                        </div>
+                        <div class="roles-timeline">
+                            <div class="role-item current">
+                                <div class="role-dot current"></div>
+                                <div class="role-content">
+                                    <div class="role-header">
+                                        <h4>Bolsista de Extensão</h4>
+                                        <span class="role-period">dez/2023 – presente</span>
+                                    </div>
+                                    <ul class="role-details">
+                                        <li>Bolsista da Robótica para a Inclusão Social (RISO)</li>
+                                        <li>Líder de Processo Seletivo</li>
+                                        <li>Líder do NERO e ROBOCOMP</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="role-item">
+                                <div class="role-dot"></div>
+                                <div class="role-content">
+                                    <div class="role-header">
+                                        <h4>Membro Voluntário</h4>
+                                        <span class="role-period">jun/2023 – dez/2023</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Konvex Jr. -->
+                    <article class="experience-card" data-reveal>
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="experience-org">Konvex Jr.</h3>
+                                <p class="experience-subtitle">Empresa Júnior — UDESC-CCT</p>
+                            </div>
+                            <span class="experience-duration">1 ano 11 meses</span>
+                        </div>
+                        <div class="roles-timeline">
+                            <div class="role-item highlight">
+                                <div class="role-dot"></div>
+                                <div class="role-content">
+                                    <div class="role-header">
+                                        <h4>Diretor de Projetos</h4>
+                                        <span class="role-period">dez/2021 – dez/2022</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="role-item">
+                                <div class="role-dot"></div>
+                                <div class="role-content">
+                                    <div class="role-header">
+                                        <h4>Assessor de Projetos</h4>
+                                        <span class="role-period">abr/2021 – dez/2021</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="role-item">
+                                <div class="role-dot"></div>
+                                <div class="role-content">
+                                    <div class="role-header">
+                                        <h4>Consultor</h4>
+                                        <span class="role-period">mar/2021 – abr/2021</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="role-item">
+                                <div class="role-dot"></div>
+                                <div class="role-content">
+                                    <div class="role-header">
+                                        <h4>Trainee</h4>
+                                        <span class="role-period">fev/2021 – mar/2021</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="progression-badge">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                            Trainee → Diretor em 10 meses
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== HABILIDADES ==================== -->
+        <section id="habilidades" class="section" data-reveal>
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="section-number">04</span>
+                    <span data-i18n="sec-skills">Habilidades Técnicas</span>
+                </h2>
+                <div class="skills-grid">
+                    <div class="skill-category" data-reveal>
+                        <h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                            CAD / Modelagem 3D
+                        </h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag primary">SolidWorks</span>
+                            <span class="skill-tag">Autodesk Inventor</span>
+                            <span class="skill-tag">Fusion 360</span>
+                        </div>
+                    </div>
+                    <div class="skill-category" data-reveal>
+                        <h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                            Programação
+                        </h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag primary">C / C++</span>
+                            <span class="skill-tag">Arduino</span>
+                            <span class="skill-tag">Ladder</span>
+                        </div>
+                    </div>
+                    <div class="skill-category" data-reveal>
+                        <h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                            Simulação
+                        </h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">ANSYS</span>
+                            <span class="skill-tag">Altair Inspire</span>
+                        </div>
+                    </div>
+                    <div class="skill-category" data-reveal>
+                        <h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+                            Automação Industrial
+                        </h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag primary">TIA Portal</span>
+                            <span class="skill-tag">Robot Studio</span>
+                            <span class="skill-tag">E3 Viewer</span>
+                        </div>
+                    </div>
+                    <div class="skill-category" data-reveal>
+                        <h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                            Fabricação
+                        </h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Impressão 3D</span>
+                            <span class="skill-tag">PETG</span>
+                            <span class="skill-tag">TPU</span>
+                        </div>
+                    </div>
+                    <div class="skill-category" data-reveal>
+                        <h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                            Idiomas
+                        </h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag primary">Português — Nativo</span>
+                            <span class="skill-tag">Inglês — Intermediário</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Gráfico Radar de Competências -->
+                <div class="skills-chart-container" data-reveal>
+                    <canvas id="skills-radar-chart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== MÓDULOS TÉCNICOS ==================== -->
+        <section id="modulos" class="section" data-reveal>
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="section-number">05</span>
+                    <span data-i18n="sec-modules">Formação Técnica — Módulos</span>
+                </h2>
+                <p class="section-subtitle">Curso Técnico em Automação Industrial · SENAI Tubarão · 908h totais</p>
+                <div class="accordion">
+                    <details class="accordion-item" id="modulo-1">
+                        <summary class="accordion-header">
+                            <div class="accordion-title-group">
+                                <span class="accordion-title">Módulo Específico I — Eletroeletrônica e Controle</span>
+                                <span class="accordion-hours">424h</span>
+                            </div>
+                            <svg class="accordion-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </summary>
+                        <div class="accordion-content">
+                            <ul class="module-list">
+                                <li><span class="module-name">Acionamentos Eletroeletrônicos</span><span class="module-hours">80h</span></li>
+                                <li><span class="module-name">Instrumentação e Controle de Processos Industriais</span><span class="module-hours">80h</span></li>
+                                <li><span class="module-name">Sistemas Eletrohidráulicos e Eletropneumáticos</span><span class="module-hours">60h</span></li>
+                                <li><span class="module-name">Sistemas Eletrônicos e Microcontroladores</span><span class="module-hours">84h</span></li>
+                                <li><span class="module-name">Sistemas Lógicos Programáveis</span><span class="module-hours">120h</span></li>
+                            </ul>
+                        </div>
+                    </details>
+                    <details class="accordion-item" id="modulo-2">
+                        <summary class="accordion-header">
+                            <div class="accordion-title-group">
+                                <span class="accordion-title">Módulo Específico II — Sistemas Automatizados</span>
+                                <span class="accordion-hours">292h</span>
+                            </div>
+                            <svg class="accordion-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </summary>
+                        <div class="accordion-content">
+                            <ul class="module-list">
+                                <li><span class="module-name">Gestão dos Processos de Implementação de Sistemas Automatizados</span><span class="module-hours">32h</span></li>
+                                <li><span class="module-name">Comissionamento de Sistemas Automatizados</span><span class="module-hours">40h</span></li>
+                                <li><span class="module-name">Sistemas de Supervisão e Controle</span><span class="module-hours">60h</span></li>
+                                <li><span class="module-name">Integração de Dispositivos Automatizados</span><span class="module-hours">100h</span></li>
+                                <li><span class="module-name">Manutenção de Sistemas Automatizados</span><span class="module-hours">60h</span></li>
+                            </ul>
+                        </div>
+                    </details>
+                    <details class="accordion-item" id="modulo-3">
+                        <summary class="accordion-header">
+                            <div class="accordion-title-group">
+                                <span class="accordion-title">Módulo Específico III — Projetos</span>
+                                <span class="accordion-hours">192h</span>
+                            </div>
+                            <svg class="accordion-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </summary>
+                        <div class="accordion-content">
+                            <ul class="module-list">
+                                <li><span class="module-name">Projetos de Acionamentos Eletroeletrônicos</span><span class="module-hours">60h</span></li>
+                                <li><span class="module-name">Projetos de Controle e Sistemas Automatizados</span><span class="module-hours">92h</span></li>
+                                <li><span class="module-name">Projetos de Intertravamento de Segurança de Processos Industriais</span><span class="module-hours">40h</span></li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PROJETOS TÉCNICOS ==================== -->
+        <section id="projetos-tecnicos" class="section" data-reveal>
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="section-number">06</span>
+                    <span data-i18n="sec-projects-title">Projetos Técnicos</span>
+                </h2>
+                
+                <!-- 
+                     INSTRUÇÃO: Para adicionar um novo projeto técnico ao seu currículo,
+                     copie o bloco <article class="project-card">...</article> comentado abaixo,
+                     cole logo abaixo dele (dentro da div "projects-grid") e preencha as informações.
+                -->
+                <div class="projects-grid">
+                    <!-- TEMPLATE DE PROJETO (COPIAR E PREENCHER):
+                    <article class="project-card" data-reveal>
+                        <div class="project-content">
+                            <h3 class="project-title">Nome do Projeto</h3>
+                            <p class="project-description">Descrição sucinta do projeto de engenharia, os problemas resolvidos e os resultados obtidos.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Tecnologia 1</span>
+                                <span class="project-tag">Tecnologia 2</span>
+                            </div>
+                            <a href="https://github.com/seu-usuario/seu-repositorio" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+                                <span>Ver no GitHub</span>
+                            </a>
+                        </div>
+                    </article>
+                    -->
+                    
+                    <div class="empty-state-card">
+                        <p data-i18n="empty-projects-msg">Nenhum projeto técnico listado. Edite o arquivo HTML usando o template comentado para adicionar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CERTIFICAÇÕES ==================== -->
+        <section id="certificacoes" class="section" data-reveal>
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="section-number">07</span>
+                    <span data-i18n="sec-certifications-title">Certificações e Cursos</span>
+                </h2>
+                
+                <!-- 
+                     INSTRUÇÃO: Para adicionar uma certificação, copie o bloco
+                     <div class="certification-card">...</div> comentado abaixo,
+                     cole logo abaixo dele (dentro da div "certifications-list") e preencha.
+                -->
+                <div class="certifications-list">
+                    <!-- TEMPLATE DE CERTIFICAÇÃO (COPIAR E PREENCHER):
+                    <div class="certification-card" data-reveal>
+                        <div class="cert-info">
+                            <h3 class="cert-name">Título da Certificação / Curso</h3>
+                            <p class="cert-institution">Instituição Emissora</p>
+                            <p class="cert-meta">Carga Horária · Ano</p>
+                        </div>
+                    </div>
+                    -->
+
+                    <div class="empty-state-card">
+                        <p data-i18n="empty-certs-msg">Nenhuma certificação listada. Edite o arquivo HTML usando o template comentado para adicionar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-contact">
+                    Gustavo Luiz Heck · gustavoluizheck+trabalho@gmail.com · (48) 99144-0068
+                </p>
+                <p class="footer-updated">Atualizado em Julho/2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
